@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_Add_Upload_File_More_Than_10MB</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>21c0cc7f-79c7-49eb-875f-ddfe303ea207</testCaseGuid>
+</TestCaseEntity>

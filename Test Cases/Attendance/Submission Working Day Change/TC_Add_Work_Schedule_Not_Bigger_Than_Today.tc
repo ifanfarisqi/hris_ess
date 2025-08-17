@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_Add_Work_Schedule_Not_Bigger_Than_Today</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>c8709c72-b43f-4312-abc5-e0fdf56ce6ed</testCaseGuid>
+</TestCaseEntity>
