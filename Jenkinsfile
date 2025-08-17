@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'master', url: 'https://github.com/ifanfarisqi/hris_ess.git'
+                git url: 'https://github.com/ifanfarisqi/hris_ess.git', branch: 'main'
             }
         }
 
