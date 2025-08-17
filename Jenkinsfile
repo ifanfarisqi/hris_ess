@@ -10,7 +10,6 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                // clone project Katalon dari repo kamu
                 git branch: 'main', url: 'https://github.com/ifanfarisqi/hris_ess.git'
             }
         }
@@ -18,6 +17,8 @@ pipeline {
         stage('Run Katalon Test with Docker') {
             steps {
                 sh '''
+                mkdir -p reports
+
                 docker run --rm \
                   -e APP_BASE_URL=$APP_BASE_URL \
                   -e APP_EMAIL=$APP_EMAIL \
@@ -26,7 +27,7 @@ pipeline {
                   -v "$PWD/reports":/katalon/report \
                   katalonstudio/katalon:latest \
                   katalonc.sh -noSplash -runMode=console \
-                    -projectPath="/Users/ifanmuhammad/Katalon Studio/hris_ess/hris_ess.prj" \
+                    -projectPath="/katalon/project/hris_ess.prj" \
                     -testSuitePath="Test Suites/Login" \
                     -executionProfile="default" \
                     -browserType="Chrome (headless)" \
