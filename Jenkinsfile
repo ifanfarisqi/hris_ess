@@ -10,8 +10,9 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git url: 'https://github.com/ifanfarisqi/hris_ess.git', branch: 'main'
-            }
+                git branch: 'main',
+                url: 'https://github.com/ifanfarisqi/hris_ess.git'
+    }
         }
 
         stage('Run Katalon Test with Docker') {
