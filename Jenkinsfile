@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     environment {
-        KATALON_API_KEY = credentials('katalon-api-key') 
         APP_BASE_URL    = "https://ics-hris.skwn.dev/login"
         APP_EMAIL       = "saiqul@gmail.com"
         APP_PASSWORD    = "password123"
@@ -20,7 +19,6 @@ pipeline {
             steps {
                 sh '''
                 docker run --rm \
-                  -e KATALON_API_KEY=$KATALON_API_KEY \
                   -e APP_BASE_URL=$APP_BASE_URL \
                   -e APP_EMAIL=$APP_EMAIL \
                   -e APP_PASSWORD=$APP_PASSWORD \
