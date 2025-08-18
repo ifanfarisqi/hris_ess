@@ -1,52 +1,49 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'katalonstudio/katalon:latest'
+            args '-u root:root'
+        }
+    }
 
     environment {
-        APP_BASE_URL    = "https://ics-hris.skwn.dev/login"
-        APP_EMAIL       = "saiqul@gmail.com"
-        APP_PASSWORD    = "password123"
+        KATALON_PROJECT = "/katalon/hris_ess.prj"
+        TEST_SUITE_PATH = "Test Suites/Login"
+        REPORT_PATH = "/katalon/Reports"
+        APP_URL = "https://ics-hris.skwn.dev/login"
+        USER_EMAIL = "saiqul@gmail.com"
+        USER_PASSWORD = "password123"
     }
 
     stages {
-        stage('Checkout Code') {
+        stage('Checkout') {
             steps {
-                git branch: 'main',
-                url: 'https://github.com/ifanfarisqi/hris_ess.git'
-    }
-        }
-
-        stage('Run Katalon Test with Docker') {
-            steps {
-                sh '''
-                mkdir -p reports
-
-                docker run --rm \
-                  -e APP_BASE_URL=$APP_BASE_URL \
-                  -e APP_EMAIL=$APP_EMAIL \
-                  -e APP_PASSWORD=$APP_PASSWORD \
-                  -v "$PWD":/katalon/project \
-                  -v "$PWD/reports":/katalon/report \
-                  katalonstudio/katalon:latest \
-                  katalonc.sh -noSplash -runMode=console \
-                    -projectPath="/katalon/project/hris_ess.prj" \
-                    -testSuitePath="Test Suites/Login" \
-                    -executionProfile="default" \
-                    -browserType="Chrome (headless)" \
-                    -reportFolder="/katalon/report" \
-                    -reportFileName="login"
-                '''
+                git branch: 'main', url: 'https://github.com/ifanfarisqi/hris_ess.git'
             }
         }
 
-        stage('Publish Report') {
+        stage('Run Katalon Test Suite') {
             steps {
-                publishHTML (target: [
-                    allowMissing: false,
-                    keepAll: true,
-                    reportDir: 'reports',
-                    reportFiles: 'login.html',
-                    reportName: 'Katalon Test Report'
-                ])
+                sh """
+                    katalonc.sh \
+                        -projectPath="$KATALON_PROJECT" \
+                        -retry=0 \
+                        -testSuitePath="$TEST_SUITE_PATH" \
+                        -executionProfile=default \
+                        -browserType="Chrome" \
+                        -apiKey=\$KATALON_API_KEY \
+                        -g_url=$APP_URL \
+                        -g_email=$USER_EMAIL \
+                        -g_password=$USER_PASSWORD \
+                        -reportFolder=$REPORT_PATH \
+                        -reportFileName=jenkins_report
+                """
+            }
+        }
+
+        stage('Archive Reports') {
+            steps {
+                archiveArtifacts artifacts: 'Reports/**', fingerprint: true
             }
         }
     }
