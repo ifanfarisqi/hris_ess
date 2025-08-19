@@ -8,6 +8,7 @@ pipeline {
         APP_URL           = "https://ics-hris.skwn.dev/login"
         USER_EMAIL        = "saiqul@gmail.com"
         USER_PASSWORD     = "password123"
+        KATALON_API_KEY = credentials('katalon_api_key')
     }
 
     stages {
@@ -28,6 +29,7 @@ pipeline {
                   -g_password=$USER_PASSWORD \
                   -reportFolder=$REPORT_PATH \
                   -reportFileName=jenkins_report
+                  -apiKey=$KATALON_API_KEY
                 """
             }
         }
