@@ -9,14 +9,9 @@ pipeline {
     }
 
     environment {
-        KATALON_PROJECT = "/katalon/hris_ess.prj"
-        REPORT_PATH     = "/katalon/Reports"
-        KATALON_API_KEY = credentials('katalon_api_key')
-
-        APP_URL        = "${params.APP_URL}"
-        USER_EMAIL     = "${params.USER_EMAIL}"
-        USER_PASSWORD  = "${params.USER_PASSWORD}"   /
-        TEST_SUITE_PATH = "${params.TEST_SUITE_PATH}"
+        KATALON_PROJECT  = "/katalon/hris_ess.prj"
+        REPORT_PATH      = "/katalon/Reports"
+        KATALON_API_KEY  = credentials('katalon_api_key')
     }
 
     stages {
@@ -27,17 +22,17 @@ pipeline {
                   -v \$WORKSPACE:/katalon/project \
                   -v \$WORKSPACE/Reports:/katalon/Reports \
                   katalonstudio/katalon:latest katalonc \
-                  -projectPath="$KATALON_PROJECT" \
+                  -projectPath="\$KATALON_PROJECT" \
                   -retry=0 \
-                  -testSuitePath="$TEST_SUITE_PATH" \
+                  -testSuitePath="${params.TEST_SUITE_PATH}" \
                   -executionProfile=default \
                   -browserType="Chrome" \
-                  -g_url=$APP_URL \
-                  -g_email=$USER_EMAIL \
-                  -g_password=$USER_PASSWORD \
-                  -reportFolder=$REPORT_PATH \
+                  -g_url="${params.APP_URL}" \
+                  -g_email="${params.USER_EMAIL}" \
+                  -g_password="${params.USER_PASSWORD}" \
+                  -reportFolder="\$REPORT_PATH" \
                   -reportFileName=jenkins_report \
-                  -apiKey=$KATALON_API_KEY
+                  -apiKey="\$KATALON_API_KEY"
                 """
             }
         }
