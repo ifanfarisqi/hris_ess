@@ -11,6 +11,13 @@ pipeline {
     }
 
     stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/ifanfarisqi/hris_ess.git'
+            }
+        }
+
         stage('Run Katalon Test Suite') {
             steps {
                 sh """
