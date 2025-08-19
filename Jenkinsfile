@@ -4,7 +4,7 @@ pipeline {
     parameters {
         string(name: 'APP_URL', defaultValue: 'https://ics-hris.skwn.dev/login', description: 'Target application URL')
         string(name: 'USER_EMAIL', defaultValue: 'saiqul@gmail.com', description: 'Login email for testing')
-        password(name: 'USER_PASSWORD', defaultValue: '', description: 'Login password for testing')
+        password(name: 'USER_PASSWORD', defaultValue: 'password123', description: 'Login password for testing')
         string(name: 'TEST_SUITE_PATH', defaultValue: 'Test Suites/Login', description: 'Katalon Test Suite path')
     }
 
