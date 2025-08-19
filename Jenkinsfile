@@ -17,7 +17,7 @@ pipeline {
                 docker run --rm --platform linux/amd64 \
                   -v \$WORKSPACE:/katalon/project \
                   -v \$WORKSPACE/Reports:/katalon/Reports \
-                  katalonstudio/katalon:latest \
+                  katalonstudio/katalon:latest katalonc \
                   -projectPath="$KATALON_PROJECT" \
                   -retry=0 \
                   -testSuitePath="$TEST_SUITE_PATH" \
