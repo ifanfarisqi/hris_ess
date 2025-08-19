@@ -9,7 +9,7 @@ pipeline {
     }
 
     environment {
-        KATALON_PROJECT  = "/katalon/hris_ess.prj"
+        KATALON_PROJECT  = "/katalon/project/hris_ess.prj"
         REPORT_PATH      = "/katalon/Reports"
         KATALON_API_KEY  = credentials('katalon_api_key')
     }
