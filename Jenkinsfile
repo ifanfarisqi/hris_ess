@@ -1,5 +1,5 @@
 pipeline {
-    agent any   // ganti docker agent bawaan karena kita akan run docker manual
+    agent any
 
     environment {
         KATALON_PROJECT = "/katalon/hris_ess.prj"
@@ -14,12 +14,6 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/ifanfarisqi/hris_ess.git'
-            }
-        }
-
-        stage('Pull Katalon Docker') {
-            steps {
-                sh 'docker pull --platform linux/arm64/v8 katalonstudio/katalon:latest'
             }
         }
 
