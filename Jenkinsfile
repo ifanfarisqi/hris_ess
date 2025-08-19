@@ -13,10 +13,9 @@ pipeline {
         REPORT_PATH     = "/katalon/Reports"
         KATALON_API_KEY = credentials('katalon_api_key')
 
-        // mapping parameters ke env
         APP_URL        = "${params.APP_URL}"
         USER_EMAIL     = "${params.USER_EMAIL}"
-        USER_PASSWORD  = "${params.USER_PASSWORD}"
+        USER_PASSWORD  = "${params.USER_PASSWORD}"   /
         TEST_SUITE_PATH = "${params.TEST_SUITE_PATH}"
     }
 
