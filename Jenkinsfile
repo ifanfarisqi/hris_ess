@@ -21,18 +21,18 @@ pipeline {
                 docker run --rm --platform linux/amd64 \
                   -v \$WORKSPACE:/katalon/project \
                   -v \$WORKSPACE/Reports:/katalon/Reports \
-                  katalonstudio/katalon:latest katalonc \
-                  -projectPath="\$KATALON_PROJECT" \
-                  -retry=0 \
-                  -testSuitePath="${params.TEST_SUITE_PATH}" \
-                  -executionProfile=default \
-                  -browserType="Chrome" \
-                  -g_url="${params.APP_URL}" \
-                  -g_email="${params.USER_EMAIL}" \
-                  -g_password="${params.USER_PASSWORD}" \
-                  -reportFolder="\$REPORT_PATH" \
-                  -reportFileName=jenkins_report \
-                  -apiKey="\$KATALON_API_KEY"
+                  katalonstudio/katalon:latest \
+                  katalonc -projectPath=\$KATALON_PROJECT \
+                           -retry=0 \
+                           -testSuitePath="${params.TEST_SUITE_PATH}" \
+                           -executionProfile=default \
+                           -browserType="Chrome" \
+                           -g_url="${params.APP_URL}" \
+                           -g_email="${params.USER_EMAIL}" \
+                           -g_password="${params.USER_PASSWORD}" \
+                           -reportFolder=\$REPORT_PATH \
+                           -reportFileName=jenkins_report \
+                           -apiKey=\$KATALON_API_KEY
                 """
             }
         }
