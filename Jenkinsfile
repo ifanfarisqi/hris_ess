@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'katalonstudio/katalon:latest'
-            args '-u root:root'
-        }
-    }
+    agent any   // ganti docker agent bawaan karena kita akan run docker manual
 
     environment {
         KATALON_PROJECT = "/katalon/hris_ess.prj"
@@ -22,16 +17,24 @@ pipeline {
             }
         }
 
+        stage('Pull Katalon Docker') {
+            steps {
+                sh 'docker pull --platform linux/arm64/v8 katalonstudio/katalon:latest'
+            }
+        }
+
         stage('Run Katalon Test Suite') {
             steps {
                 sh """
-                    katalonc.sh \
+                    docker run --rm --platform linux/arm64/v8 \
+                        -v \$(pwd):/katalon/project \
+                        -v \$(pwd)/Reports:/katalon/Reports \
+                        katalonstudio/katalon:latest \
                         -projectPath="$KATALON_PROJECT" \
                         -retry=0 \
                         -testSuitePath="$TEST_SUITE_PATH" \
                         -executionProfile=default \
                         -browserType="Chrome" \
-                        -apiKey=\$KATALON_API_KEY \
                         -g_url=$APP_URL \
                         -g_email=$USER_EMAIL \
                         -g_password=$USER_PASSWORD \
