@@ -1,14 +1,17 @@
 pipeline {
     agent any
 
+    parameters {
+        string(name: 'APP_URL', defaultValue: 'https://ics-hris.skwn.dev/login', description: 'Target application URL')
+        string(name: 'USER_EMAIL', defaultValue: 'saiqul@gmail.com', description: 'Login email for testing')
+        password(name: 'USER_PASSWORD', defaultValue: '', description: 'Login password for testing')
+        string(name: 'TEST_SUITE_PATH', defaultValue: 'Test Suites/Login', description: 'Katalon Test Suite path')
+    }
+
     environment {
         KATALON_PROJECT   = "/katalon/hris_ess.prj"
-        TEST_SUITE_PATH   = "Test Suites/Login"
         REPORT_PATH       = "/katalon/Reports"
-        APP_URL           = "https://ics-hris.skwn.dev/login"
-        USER_EMAIL        = "saiqul@gmail.com"
-        USER_PASSWORD     = "password123"
-        KATALON_API_KEY   = credentials('katalon_api_key')
+        KATALON_API_KEY   = credentials('katalon_api_key') 
     }
 
     stages {
@@ -38,6 +41,18 @@ pipeline {
             steps {
                 archiveArtifacts artifacts: 'Reports/**', fingerprint: true
             }
+        }
+    }
+
+    post {
+        always {
+            echo "Pipeline finished. Reports archived (if generated)."
+        }
+        success {
+            echo "✅ Test suite PASSED!"
+        }
+        failure {
+            echo "❌ Test suite FAILED! Check Reports in Jenkins artifacts."
         }
     }
 }
