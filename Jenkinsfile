@@ -20,7 +20,7 @@ pipeline {
         stage('Run Katalon Test Suite') {
             steps {
                 sh """
-                    docker run --rm --platform linux/arm64/v8 \
+                    docker run --rm --platform linux/amd64 \
                         -v \$(pwd):/katalon/project \
                         -v \$(pwd)/Reports:/katalon/Reports \
                         katalonstudio/katalon:latest \
