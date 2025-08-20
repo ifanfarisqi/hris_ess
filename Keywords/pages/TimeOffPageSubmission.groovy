@@ -21,7 +21,7 @@ import com.kms.katalon.core.testobject.ConditionType
 
 import internal.GlobalVariable
 
-public class TimeOffPage {
+public class TimeOffPageSubmission {
 
 	//Button Menu
 	private TestObject clickMenuServices = new TestObject().addProperty("xpath", ConditionType.EQUALS, "//*[@id='root']/div[2]/div/header/nav/div/div[1]/div/div/button/div")
@@ -31,10 +31,11 @@ public class TimeOffPage {
 	private TestObject lblTimeOff = new TestObject().addProperty("xpath", ConditionType.EQUALS, "//h1[normalize-space(text())='Time Off']")
 	private TestObject clickDetail = new TestObject().addProperty("xpath", ConditionType.EQUALS, "//*[@id='root']/div[2]/div/main/div[2]/div[3]/div/div[1]/div")
 
+
 	//Input
 	private TestObject inputNote = new TestObject().addProperty("xpath", ConditionType.EQUALS, "//input[@placeholder='Note']")
 	private TestObject inputSearchMember = new TestObject().addProperty("xpath", ConditionType.EQUALS, "//*[@id='root']/div[2]/div/main/div[2]/form/div[3]/div[2]/div[1]/div/div/div[2]/input")
-	TestObject inputSearch = new TestObject().addProperty("xpath", ConditionType.EQUALS, "//input[@placeholder='Search']")
+	private TestObject inputSearch = new TestObject().addProperty("xpath", ConditionType.EQUALS, "//input[@placeholder='Search']")
 
 
 	//Button
@@ -85,6 +86,7 @@ public class TimeOffPage {
 	private TestObject txtErrorFieldMember = new TestObject().addProperty("xpath", ConditionType.EQUALS, "//span[text()='Notify at least one']")
 	private TestObject lblDetail = new TestObject().addProperty("xpath", ConditionType.EQUALS, "//h1[text()='Detail Time Off']")
 	private TestObject txtErrorPastDate = new TestObject().addProperty("xpath", ConditionType.EQUALS, "//div[normalize-space(text())='Pengajuan cuti melebihi batas waktu pengajuan']")
+	private TestObject txtMessageErrorFileUpload = new TestObject().addProperty("xpath", ConditionType.EQUALS, "//div[normalize-space(text())='File size exceeds maximum limit 5 MB.']")
 
 
 	//Upload File
@@ -157,7 +159,7 @@ public class TimeOffPage {
 		WebUI.click(selectValueMember)
 	}
 
-	def clickSubmit() {
+	def clickBtnSubmit() {
 		WebUI.click(btnSubmit)
 	}
 
@@ -170,6 +172,11 @@ public class TimeOffPage {
 		WebUI.verifyElementText(txtConfirmSendSuccess, "Request was successfully sent")
 		WebUI.click(btnOk)
 		WebUI.verifyElementText(lblTimeOff, "Time Off")
+	}
+	
+	def verifyTxtMessageErrorFileUpload() {
+		WebUI.verifyElementPresent(txtMessageErrorFileUpload, 3)
+		WebUI.click(btnOk)
 	}
 
 	def verifyTxtErrorFieldCategory() {
