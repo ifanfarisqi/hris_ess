@@ -22,7 +22,7 @@ import com.kms.katalon.core.testobject.ConditionType
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import org.openqa.selenium.Keys
 import pages.LoginPage as LoginPage
-import pages.OvertimePageSubmission as OvertimePage
+import pages.OvertimePageSubmission as OvertimePageSubmission
 
 WebUI.openBrowser('')
 WebUI.navigateToUrl('https://ics-hris.skwn.dev/login')
@@ -31,7 +31,7 @@ LoginPage loginPage = new LoginPage()
 loginPage.login('saiqul@gmail.com', 'VvH/06ph0eWVSEmkJj4cqw==')
 loginPage.verifyLblDashboard()
 
-OvertimePage overtimePage = new OvertimePage()
+OvertimePageSubmission overtimePage = new OvertimePageSubmission()
 overtimePage.Overtime()
 overtimePage.search("5hy")
 

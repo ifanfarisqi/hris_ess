@@ -17,7 +17,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 import pages.LoginPage as LoginPage
-import pages.WorkingDayChangePageSubmission as WorkingDayChangePage
+import pages.WorkingDayChangePageSubmission as WorkingDayChangePageSubmission
 
 WebUI.openBrowser('')
 WebUI.navigateToUrl('https://ics-hris.skwn.dev/login')
@@ -26,7 +26,7 @@ LoginPage loginPage = new LoginPage()
 loginPage.login('saiqul@gmail.com', 'VvH/06ph0eWVSEmkJj4cqw==')
 loginPage.verifyLblDashboard()
 
-WorkingDayChangePage workingDayChangePage = new WorkingDayChangePage()
+WorkingDayChangePageSubmission workingDayChangePage = new WorkingDayChangePageSubmission()
 workingDayChangePage.workingDayChange()
 workingDayChangePage.viewDetail()
 

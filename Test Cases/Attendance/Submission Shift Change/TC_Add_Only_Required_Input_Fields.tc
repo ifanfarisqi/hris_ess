@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TestCaseEntity>
-   <description></description>
-   <name>TC_Add_Only_Required_Input_Fields</name>
-   <tag></tag>
-   <comment></comment>
-   <recordOption>OTHER</recordOption>
-   <testCaseGuid>3ee513d8-6483-479c-b238-7a83efc8af3f</testCaseGuid>
-</TestCaseEntity>

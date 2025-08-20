@@ -173,7 +173,7 @@ public class TimeOffPageSubmission {
 		WebUI.click(btnOk)
 		WebUI.verifyElementText(lblTimeOff, "Time Off")
 	}
-	
+
 	def verifyTxtMessageErrorFileUpload() {
 		WebUI.verifyElementPresent(txtMessageErrorFileUpload, 3)
 		WebUI.click(btnOk)

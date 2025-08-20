@@ -159,12 +159,12 @@ public class OvertimePageSubmission {
 		WebUI.click(clickBtnSubmit)
 	}
 
-	def ConfirmSendRequest() {
+	def confirmSendRequest() {
 		WebUI.verifyElementText(txtConfirmSendRequest, "Are you sure to send the request?")
 		WebUI.click(btnOk)
 	}
 
-	def ConfirmSendSuccess() {
+	def confirmSendSuccess() {
 		WebUI.verifyElementText(txtConfirmSendSuccess, "Request was successfully sent")
 		WebUI.click(btnOk)
 		WebUI.verifyElementText(lblOvertime, "Overtime")

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TestCaseEntity>
-   <description></description>
-   <name>TC_Add_Ended_Time_Not_Must_Be_More_Than_Start_Time</name>
-   <tag></tag>
-   <comment></comment>
-   <recordOption>OTHER</recordOption>
-   <testCaseGuid>51ac622d-f57f-49be-91cc-92e39cceda7f</testCaseGuid>
-</TestCaseEntity>
