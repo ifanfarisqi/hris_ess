@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_Add_Select_Work_Schedule_Today</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>a6c40c5c-ff42-4050-b579-fcc7bf835d33</testCaseGuid>
+</TestCaseEntity>

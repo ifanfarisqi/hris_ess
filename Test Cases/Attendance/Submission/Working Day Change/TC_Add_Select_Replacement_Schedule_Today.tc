@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_Add_Select_Replacement_Schedule_Today</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>4306aec3-191a-4b2a-8aa5-b3a05b77d5f1</testCaseGuid>
+</TestCaseEntity>
