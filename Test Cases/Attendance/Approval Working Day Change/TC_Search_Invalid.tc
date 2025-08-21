@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TestCaseEntity>
-   <description></description>
-   <name>TC_Search_Invalid</name>
-   <tag></tag>
-   <comment></comment>
-   <recordOption>OTHER</recordOption>
-   <testCaseGuid>32e40433-d6b5-4484-bbe6-34c3d7a6f7cf</testCaseGuid>
-</TestCaseEntity>

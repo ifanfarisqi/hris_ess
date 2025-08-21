@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TestCaseEntity>
-   <description></description>
-   <name>TC_View_Detail_Data</name>
-   <tag></tag>
-   <comment></comment>
-   <recordOption>OTHER</recordOption>
-   <testCaseGuid>28fe9acd-2a2f-41f0-9292-e806e70de954</testCaseGuid>
-</TestCaseEntity>

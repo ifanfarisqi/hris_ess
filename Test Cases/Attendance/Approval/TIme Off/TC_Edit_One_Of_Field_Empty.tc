@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_Edit_One_Of_Field_Empty</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>3f4b2c3f-b4f8-490b-a127-3c0e7d91aa36</testCaseGuid>
+</TestCaseEntity>

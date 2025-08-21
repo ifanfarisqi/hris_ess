@@ -23,7 +23,7 @@ WebUI.openBrowser('')
 WebUI.navigateToUrl('https://ics-hris.skwn.dev/login')
 
 LoginPage loginPage = new LoginPage()
-loginPage.login('saiqul@gmail.com', 'password123')
+loginPage.login('saiqul@gmail.com', '8SQVv/p9jVTHLrggi8kCzw==')
 loginPage.verifyLblDashboard()
 
 WorkExitPermitPageSubmission workExitPermitPage = new WorkExitPermitPageSubmission()

@@ -44,7 +44,7 @@ public class ShiftChangePageSubmission {
 	private TestObject clickBtnFilter = new TestObject().addProperty("xpath", ConditionType.EQUALS, "//*[@id='root']/div[2]/div/main/div[2]/div[2]/div[1]/button")
 	private TestObject clickBtnApply = new TestObject().addProperty("xpath", ConditionType.EQUALS, "//button[@type='submit' and contains(@class, 'btn-primary') and text()='Apply']")
 	private TestObject btnResetDisabled = new TestObject("btnResetDisabled").addProperty("xpath", ConditionType.EQUALS, "//button[@type='button' and text()='Reset' and contains(@class,'btn-disabled')]")
-	
+
 
 	//Select Option
 	private TestObject selectSchedule = new TestObject().addProperty("xpath", ConditionType.EQUALS, '//*[@id="root"]/div[2]/div/main/div[2]/div[2]/form/div[1]/div[2]/div')
@@ -62,17 +62,17 @@ public class ShiftChangePageSubmission {
 	private TestObject selectDate = new TestObject().addProperty("xpath", ConditionType.EQUALS, '//*[@id="root"]/div[2]/div/main/div[2]/div[2]/form/div[1]/div[1]/div/input')
 	private TestObject selectValueDate = new TestObject().addProperty("xpath", ConditionType.EQUALS, '//*[@id="root"]/div[2]/div/main/div[2]/div[2]/form/div[1]/div[1]/div/div/div[2]/div/div[2]/div/div[2]/div[2]/button[26]')
 	private TestObject inputDateRange = new TestObject().addProperty(
-		"xpath",
-		ConditionType.EQUALS,
-		"//input[@placeholder='YYYY-MM-DD - YYYY-MM-DD']"
-		)
-		private TestObject selectStartDateFilter(String startDate) {
-			return new TestObject("dayButton").addProperty("xpath", ConditionType.EQUALS, "//button[text()='" + startDate + "']")
-		}
-		private TestObject selectEndDateFilter(String endDate) {
-			return new TestObject("dayButton").addProperty("xpath", ConditionType.EQUALS, "//button[text()='" + endDate + "']")
-		}
-	
+	"xpath",
+	ConditionType.EQUALS,
+	"//input[@placeholder='YYYY-MM-DD - YYYY-MM-DD']"
+	)
+	private TestObject selectStartDateFilter(String startDate) {
+		return new TestObject("dayButton").addProperty("xpath", ConditionType.EQUALS, "//button[text()='" + startDate + "']")
+	}
+	private TestObject selectEndDateFilter(String endDate) {
+		return new TestObject("dayButton").addProperty("xpath", ConditionType.EQUALS, "//button[text()='" + endDate + "']")
+	}
+
 
 	//Verify Message
 	private TestObject txtConfirmSendRequest = new TestObject().addProperty("xpath", ConditionType.EQUALS, "//div[normalize-space()='Are you sure to send the request?']")
@@ -85,7 +85,7 @@ public class ShiftChangePageSubmission {
 	private TestObject txtReplacementRequired = new TestObject("lblReplacementRequired").addProperty("xpath", ConditionType.EQUALS, "//span[normalize-space(text())='Replacement is required']")
 	private TestObject txtDetailShiftChange = new TestObject().addProperty('xpath', ConditionType.EQUALS, "//h1[normalize-space(text())='Shift Change Detail']")
 
-	
+
 	//Upload File
 	private TestObject uploadFile = new TestObject().addProperty("xpath", ConditionType.EQUALS, "//input[@type='file']")
 
@@ -141,11 +141,11 @@ public class ShiftChangePageSubmission {
 		WebUI.setText(inputSearchMember, keywords)
 		WebUI.click(selectValueMember)
 	}
-	
+
 	def btnSubmit() {
 		WebUI.click(clickBtnSubmit)
 	}
-	
+
 	def confirmSendRequest() {
 		WebUI.verifyElementText(txtConfirmSendRequest, "Are you sure to send the request?")
 		WebUI.click(btnOk)
@@ -156,16 +156,16 @@ public class ShiftChangePageSubmission {
 		WebUI.click(btnOk)
 		WebUI.verifyElementText(lblShiftChange, "Shift Change")
 	}
-	
+
 	def verifyTxtBigFileError() {
 		WebUI.verifyElementText(txtBigFileError, "File size exceeds maximum limit 5 MB.")
 		WebUI.click(btnOk)
 	}
-	
+
 	def verifyNoteRequired() {
 		WebUI.verifyElementText(txtNoteRequired, "Note is required")
 	}
-	
+
 	def verifyAllField() {
 		WebUI.verifyElementText(txtDateRequired, "Date is required")
 		WebUI.verifyElementText(txtShiftingRequired, "Shifting is required")
@@ -173,17 +173,17 @@ public class ShiftChangePageSubmission {
 		WebUI.verifyElementText(txtNoteRequired, "Note is required")
 		WebUI.verifyElementText(txtMemberRequired, "Member is required")
 	}
-	
+
 	def dataDetail() {
 		WebUI.click(clickDataDetail)
 		WebUI.verifyElementPresent(txtDetailShiftChange, 3)
 		WebUI.click(btnDownload)
 	}
-	
+
 	def search(String keywords) {
 		WebUI.setText(inputSearch, keywords)
 	}
-	
+
 	def filterSuccess(String startDate, String endDate) {
 		WebUI.click(clickBtnFilter)
 		WebUI.click(selectStatusFilter)
@@ -193,7 +193,7 @@ public class ShiftChangePageSubmission {
 		WebUI.click(selectEndDateFilter(endDate))
 		WebUI.click(clickBtnApply)
 	}
-	
+
 	def resetFilter(String startDate, String endDate) {
 		WebUI.click(clickBtnFilter)
 		WebUI.click(selectStatusFilter)
